@@ -29,6 +29,7 @@ and **system design** concepts.
 ---
 
 ## Project Structure
+'''
 src/
 └── main/
     ├── java/
@@ -46,10 +47,11 @@ src/
         ├── application.properties
         ├── application-dev.properties
         └── application-prod.properties
-
+'''
 ---
 
 ## Architecture (high level)
+'''
 +----------------------+
 |        Client        |
 |  (Browser / cURL)    |
@@ -69,8 +71,11 @@ src/
 |  Redis  |    |   PostgreSQL   |
 | (Cache) |    | (Primary DB)   |
 +---------+    +----------------+
+'''
 
 ## Author
+'''
 Swayam Rajat Mohanty
 B.Tech, Electrical Engineering
 (IIT BHU)
+'''
