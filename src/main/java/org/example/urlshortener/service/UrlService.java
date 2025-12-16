@@ -54,4 +54,18 @@ public class UrlService {
         return baseUrl.endsWith("/") ? baseUrl + code : baseUrl + "/" + code;
     }
     
+    @Transactional
+    public String resolve(String code) {
+        Url url = urlRepository.findByShortCode(code)
+                .orElseThrow(() -> new IllegalArgumentException("Short URL not found"));
+
+        if (url.getExpireAt() != null && url.getExpireAt().isBefore(java.time.LocalDateTime.now())) {
+            throw new IllegalStateException("Short URL has expired");
+        }
+
+        url.setClickCount(url.getClickCount() + 1);
+        urlRepository.save(url);
+
+        return url.getOriginalUrl();
+    }
 }

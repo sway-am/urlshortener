@@ -5,6 +5,7 @@ import org.example.urlshortener.dto.ShortenResponse;
 import org.example.urlshortener.service.UrlService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @RequestMapping("/api")
@@ -20,5 +21,4 @@ public class UrlController {
         String shortUrl = urlService.shorten(request.getUrl());
         return ResponseEntity.ok(new ShortenResponse(shortUrl));
     }
-    
 }
