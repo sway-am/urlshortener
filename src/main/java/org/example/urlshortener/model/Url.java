@@ -11,10 +11,10 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "original_url", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "original_url", nullable = false, columnDefinition = "TEXT", unique = true)
     private String originalUrl;
 
-    @Column(name = "short_code", unique = true)
+    @Column(name = "short_code", unique = true, nullable = false)
     private String shortCode;
 
     @Column(name = "created_at", nullable = false)
